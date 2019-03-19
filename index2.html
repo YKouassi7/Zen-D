@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>Jeu Dés</title>
+
+	<link rel="shortcut icon" href="">
+	
+	<!-- Bootstrap itself -->
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+	<link rel="stylesheet" href="assets/css/magister2.css"> 
+	
+
+	<!-- Fonts -->
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
+</head>
+
+<!-- use "theme-invert" class on bright backgrounds, also try "text-shadows" class -->
+<body class="theme-invert">
+
+
+
+
+<section class="section" id="head">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 text-center">	
+
+				
+				<div class="joueur1" id="ButtonRoll" "><b>JOUEUR 1</b></div>
+
+		<div class="score1">
+			<div id="roll1">0</div>
+				<div id="roll2">0</div>
+					<div id="die3"></div><br><br>
+	
+
+		<div id="ButtonReset" class="current">SCORE ACCUMULE</div>
+		<div id="die4">0</div>
+
+	</div>
+
+	<div class="pions">
+		<img id="images" src="" class="dé1">
+		<img id="images1" src="" class="dé2">
+	</div>
+	
+	<div id="ButtonHold" class="hold"></div>
+	
+
+
+	<div id="ButtonRoll2" class="joueur2"><b>JOUEUR 2</b></div>
+
+	<div class="score2">
+
+			<div class="score2">
+				<div id="roll3">0</div>
+				<div id="roll4">0</div><br><br>
+				<div id="die32"></div>
+			</div>
+
+
+
+	
+	<div id="ButtonReset" class="current">SCORE ACCUMULE</div>
+	<div id="die6">0</div>
+
+	</div>
+	
+			</div> <!-- /col -->
+		</div> <!-- /row -->
+	
+	</div>
+
+
+</section>
+
+<!-- Second (About) section -->
+
+
+
+<!-- Load js libs only when the page is loaded. -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="assets/js/modernizr.custom.72241.js"></script>
+<!-- Custom template scripts -->
+<script type="text/javascript">
+
+	let button = document.getElementById('ButtonRoll'); 
+	let currentScore = 0;
+	var result = 0;
+	var result1 = 0;
+	var scoreAccumule = 0
+	var image = document.getElementById('../images');
+	var random = 0
+	var random1 = 0;
+	var lance = 0;
+	var lance1 = 0;
+	var resul3 = 0;
+	var result4 = 0;
+	
+
+
+	
+
+		button.addEventListener('click', function(){
+		random = Math.floor((Math.random() * 6) +1);
+		random1 = Math.floor((Math.random() * 6) +1);
+		result = currentScore + random;
+		result1 = currentScore + random1;
+		
+		roll1.innerHTML = result;
+		roll2.innerHTML = result1;
+
+
+		scoreAccumule = lance +=result += result1;
+		die4.innerHTML = scoreAccumule;
+		
+
+
+		images.src = '../images/dice-' + random + '.png'
+		images1.src = '../images/dice-' + random1 + '.png'
+
+
+		
+
+	});
+
+	var lance1 = 0;
+	var lance = 0;
+	var lance2 = 0;
+	var lance3 = 0;
+	var lance4 = 0;
+	var lance5 = 0;
+	let button2 = document.getElementById('ButtonHold');
+	let currentScore2 = 0;
+	let currentScore3 = 0;
+
+	button2.addEventListener('click', function(){
+		
+		lance = currentScore2 += scoreAccumule; 
+		die3.innerHTML = lance;
+
+		
+		roll1.innerHTML = result * 0;
+		roll2.innerHTML = result1 * 0;
+		
+		
+		lance = 0;
+		die32.innerHTML = lance1;
+
+
+		
+
+
+		lance1 = currentScore3 += scoreAccumule4;
+		die32.innerHTML = lance1;
+
+		roll3.innerHTML = result3 * 0;
+		roll4.innerHTML = result4 * 0;
+
+		lance2 = 0;
+		die4.innerHTML = lance3;
+
+
+		lance4 = 0;
+		die6.innerHTML = lance5;
+
+
+	});
+
+
+
+
+  	lance6 = 0;
+	currentScore2 = 0;
+	 currentScore3 = 0;
+	
+	scoreAccumule4 = 0
+	
+	random2 = 0
+	random3 = 0;
+	
+		
+
+		let button3 = document.getElementById('ButtonRoll2'); 
+		button3.addEventListener('click', function(){
+
+		random2 = Math.floor((Math.random() * 6) +1);
+		random3 = Math.floor((Math.random() * 6) +1);
+
+
+		result3 = currentScore3 + random2;
+		result4 = currentScore3 + random3;
+		
+		roll3.innerHTML = result3 ;
+		roll4.innerHTML = result4 ;
+
+
+
+
+		scoreAccumule4 = lance6 += result3 += result4; 
+		die6.innerHTML = scoreAccumule4;
+
+
+		images.src = '../images/dice-' + random2 + '.png'
+		images1.src = '../images/dice-' + random3 + '.png'
+
+
+	});
+
+		function init(){
+			scores = 0; 
+			activePlayer = 0; 
+			roundScore = 0;
+			gamePlaying = true;
+
+			document.getElementById('dice-').style.display = 'none';
+			document.getElementById('dice-').style.display = 'none';
+		}
+
+
+
+
+
+
+
+
+	
+
+
+
+
+	
+
+
+
+
+</script>
+</body>
+</html>
